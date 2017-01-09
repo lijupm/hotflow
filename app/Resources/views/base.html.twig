@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Hotflo OR</title>
+    {% block stylesheets %}
+        {% stylesheets '@hotflo_css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path("hotflo_or_homepage") }}"><img src="{{ asset('/images/logo.png') }}" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li {% if app.request.get('_route') == 'hotflo_or_homepage' %}class="active"{% endif %}>
+                        <a href="{{ path('hotflo_or_homepage') }}">Home</a>
+                    </li>
+                    <li {% if app.request.get('_route') == 'list_hospital_operating_rooms' %}class="active"{% endif %}>
+                        <a href="{{ path('list_hospital_operating_rooms', {"hospitalHandle" : hospital_handle}) }}">OR Overview</a>
+                    </li>
+                    <li {% if app.request.get('_route') == 'specialists_index' %}class="active"{% endif %}>
+                        <a href="{{ path('specialists_index') }}">Specialist Overview</a>
+                    </li>
+                    <li {% if app.request.get('_route') == 'specialist_check_availability' %}class="active"{% endif %}>
+                        <a href="{{ path('specialist_check_availability') }}">Check Specialist Availability</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Entry <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li ><a href="{{ path("operating_rooms_index") }}">Operating Rooms</a></li>
+                            <li><a href="{{ path("sessions_index") }}">Sessions</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ path("specialists_index") }}">Specialists</a></li>
+                            <li><a href="{{ path("anesthetists_index") }}">Anesthetists</a></li>
+                            <li><a href="{{ path("patients_index") }}">Patients</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        {% for success_flash_message in app.session.flashBag.get('success_message') %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ success_flash_message }}
+            </div>
+        {% endfor %}
+        {% for failure_flash_message in app.session.flashBag.get('failure_message') %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ failure_flash_message }}
+            </div>
+        {% endfor %}
+        {% block body %}
+
+        {% endblock %}
+    </div>
+
+
+
+</div> <!-- /container -->
+
+
+{% block javascripts %}
+    {% javascripts '@hotflo_js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+anesthetist_one:
+  first_name: "Brendon"
+  last_name: "Mac"
+  gender: "male"
+  dob: "1-1-1970"
+  availability_per_week: 10
+
+anesthetist_two:
+  first_name: "Kane"
+  last_name: "Williamson"
+  gender: "male"
+  dob: "1-1-1975"
+  availability_per_week: 40
+
+anesthetist_three:
+  first_name: "Rose"
+  last_name: "Tailor"
+  gender: "male"
+  dob: "1-1-1971"
+  availability_per_week: 32
+
+anesthetist_four:
+  first_name: "Stephen"
+  last_name: "Fleming"
+  gender: "male"
+  dob: "1-1-1971"
+  availability_per_week: 32

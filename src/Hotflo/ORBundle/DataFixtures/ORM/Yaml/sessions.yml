@@ -1,0 +1,39 @@
+session_one:
+  name: "Session one"
+  description: "Session one description"
+  start_time: "16-01-2017 10:00"
+  end_time: "16-01-2017 15:00"
+  operating_room: "or_one"
+  specialist: "specialist_one"
+  anesthetists: ["anesthetist_one", "anesthetist_two"]
+  patient: "patient_one"
+
+session_two:
+  name: "Session two"
+  description: "Session two description"
+  start_time: "17-01-2017 14:00"
+  end_time: "17-01-2017 18:00"
+  operating_room: "or_two"
+  specialist: "specialist_two"
+  anesthetists: ["anesthetist_one", "anesthetist_three"]
+  patient: "patient_two"
+
+session_three:
+  name: "Session three"
+  description: "Session three description"
+  start_time: "18-01-2017 10:00"
+  end_time: "18-01-2017 15:00"
+  operating_room: "or_one"
+  specialist: "specialist_one"
+  anesthetists: ["anesthetist_one", "anesthetist_two"]
+  patient: "patient_one"
+
+session_four:
+  name: "Session four"
+  description: "Session four description"
+  start_time: "19-01-2017 14:00"
+  end_time: "19-01-2017 18:00"
+  operating_room: "or_two"
+  specialist: "specialist_two"
+  anesthetists: ["anesthetist_one", "anesthetist_three"]
+  patient: "patient_two"

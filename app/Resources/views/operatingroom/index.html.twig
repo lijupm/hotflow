@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Operating Rooms list</b></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for operatingRoom in operatingRooms %}
+            <tr>
+                <td><a href="{{ path('operating_rooms_show', { 'id': operatingRoom.id }) }}">{{ operatingRoom.id }}</a></td>
+                <td>{{ operatingRoom.name }}</td>
+                <td>{{ operatingRoom.description }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('operating_rooms_show', { 'id': operatingRoom.id }) }}">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show
+                    </a>
+                    <a class="btn btn-warning" href="{{ path('operating_rooms_edit', { 'id': operatingRoom.id }) }}">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-info" href="{{ path('operating_rooms_new') }}">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create a new Operating Room
+        </a>
+    </div>
+    </div>
+</div>
+{% endblock %}

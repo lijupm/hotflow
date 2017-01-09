@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Welcome to Hotflo Test</h1>
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Description</b></h3>
+    </div>
+    <div class="panel-body">
+
+    <p>
+        For this assignment we have the following configuration:<br>
+
+        A hospital has 10 operatingrooms (OR’s).<br>
+        This hospital has 5 specialists in service that are scheduled to perform surgeries.<br>
+        It also has 5 anesthetists in service who sedate the patient at the beginning of the session.<br>
+
+        These sessions (the execution of an operation) can last from 1 to 4 hours. In a session there is one specialist and one or more anesthetists.<br>
+
+        Specialists and anesthetists are limitedly available (some work 40 hours, others 32).
+    </p>
+
+    </div>
+    </div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Assignment</b></h3>
+    </div>
+    <div class="panel-body">
+        <ol>
+            <li>Draw or create in your favorite tool an overview of the entities and their properties.</li>
+            <li>Draw or create in your favorite tool a database model and the relations.</li>
+            <li>Write an object oriented method in PHP that gives an overview of the sessions and the specialists and the anesthetists that are scheduled per OR.</li>
+            <li>Write an object oriented method in PHP that gives an overview of the sessions and OR’s of a specific specialist.</li>
+            <li>Write an object oriented method in PHP that checks if a specialists available in a certain timeslot. Do not write a query, but use the objects you have created.</li>
+        </ol>
+    </div>
+    </div>
+{% endblock %}
+

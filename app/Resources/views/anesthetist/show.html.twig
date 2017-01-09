@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Anesthetist</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ anesthetist.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ anesthetist.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ anesthetist.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ anesthetist.gender }}</td>
+            </tr>
+            <tr>
+                <th>Dob</th>
+                <td>{% if anesthetist.dob %}{{ anesthetist.dob|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Availabilityperweek</th>
+                <td>{{ anesthetist.availabilityPerWeek }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('anesthetists_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('anesthetists_edit', { 'id': anesthetist.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

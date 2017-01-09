@@ -1,0 +1,56 @@
+Hotflo\ORBundle\Entity\Session:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\SessionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        startTime:
+            type: datetime
+            column: start_time
+        endTime:
+            type: datetime
+            column: end_time
+
+    manyToOne:
+        operatingRoom:
+            targetEntity: Hotflo\ORBundle\Entity\OperatingRoom
+            inversedBy: sessions
+            joinColumn:
+                name: operating_room_id
+                referencedColumnName: id
+        patient:
+            targetEntity: Hotflo\ORBundle\Entity\Patient
+            joinColumn:
+                name: patient_id
+                referencedColumnName: id
+
+        specialist:
+            targetEntity: Hotflo\ORBundle\Entity\Specialist
+            inversedBy: sessions
+            joinColumn:
+                name: specialist_id
+                referencedColumnName: id
+    manyToMany:
+        anesthetists:
+            targetEntity: Hotflo\ORBundle\Entity\Anesthetist
+            inversedBy: sessions
+            joinTable:
+                name: session_anesthetists
+                joinColumns:
+                    session_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    anesthetist_id:
+                        referencedColumnName: id
+
+    lifecycleCallbacks: {  }

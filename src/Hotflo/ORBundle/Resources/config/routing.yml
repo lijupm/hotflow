@@ -1,0 +1,3 @@
+hotflo_or_homepage:
+    path:     /
+    defaults: { _controller: HotfloORBundle:Default:index }

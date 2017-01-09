@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hospital</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hospital.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ hospital.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ hospital.description }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ hospital.address }}</td>
+            </tr>
+            <tr>
+                <th>Ormaxcapacity</th>
+                <td>{{ hospital.orMaxCapacity }}</td>
+            </tr>
+            <tr>
+                <th>Specialistsmaxcapacity</th>
+                <td>{{ hospital.specialistsMaxCapacity }}</td>
+            </tr>
+            <tr>
+                <th>Anesthetistmaxcapacity</th>
+                <td>{{ hospital.anesthetistMaxCapacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hospitals_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('hospitals_edit', { 'id': hospital.id }) }}">Edit</a>
+        </li>
+        <li>
+            <a href="{{ path('list_hospital_operating_rooms', { 'hospitalId': hospital.id }) }}">List Operating Rooms</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

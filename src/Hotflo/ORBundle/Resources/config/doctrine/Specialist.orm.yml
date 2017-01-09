@@ -1,0 +1,46 @@
+Hotflo\ORBundle\Entity\Specialist:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\SpecialistRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
+        gender:
+            type: string
+            length: '10'
+        dob:
+            type: date
+        availabilityPerWeek:
+            type: integer
+            column: availability_per_week
+    manyToOne:
+        hospital:
+            targetEntity: Hotflo\ORBundle\Entity\Hospital
+            inversedBy: specialists
+            joinColumn:
+                name: hospital_id
+                referencedColumnName: id
+        specialism:
+            targetEntity: Hotflo\ORBundle\Entity\Specialism
+            joinColumn:
+                name: specialism_id
+                referencedColumnName: id
+
+    oneToMany:
+        sessions:
+            targetEntity: Hotflo\ORBundle\Entity\Session
+            mappedBy: specialist
+
+    lifecycleCallbacks: {  }

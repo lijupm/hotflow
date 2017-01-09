@@ -1,0 +1,27 @@
+specialist_one:
+  first_name: "Adam"
+  last_name: "Gilchrist"
+  gender: "male"
+  dob: "1-1-1970"
+  availability_per_week: 10
+
+specialist_two:
+  first_name: "Michael"
+  last_name: "Clarke"
+  gender: "male"
+  dob: "1-1-1975"
+  availability_per_week: 40
+
+specialist_three:
+  first_name: "Ricky"
+  last_name: "Ponting"
+  gender: "male"
+  dob: "1-1-1971"
+  availability_per_week: 32
+
+specialist_four:
+  first_name: "Mark"
+  last_name: "Taylor"
+  gender: "male"
+  dob: "1-1-1971"
+  availability_per_week: 32

@@ -1,0 +1,31 @@
+Hotflo\ORBundle\Entity\OperatingRoom:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\OperatingRoomRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+    manyToOne:
+        hospital:
+            targetEntity: Hotflo\ORBundle\Entity\Hospital
+            inversedBy: operatingRooms
+            joinColumn:
+                name: hospital_id
+                referencedColumnName: id
+
+    oneToMany:
+        sessions:
+            targetEntity: Hotflo\ORBundle\Entity\Session
+            mappedBy: operatingRoom
+
+    lifecycleCallbacks: {  }

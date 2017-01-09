@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hospitals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Ormaxcapacity</th>
+                <th>Specialistsmaxcapacity</th>
+                <th>Anesthetistmaxcapacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hospital in hospitals %}
+            <tr>
+                <td><a href="{{ path('hospitals_show', { 'id': hospital.id }) }}">{{ hospital.id }}</a></td>
+                <td>{{ hospital.name }}</td>
+                <td>{{ hospital.description }}</td>
+                <td>{{ hospital.address }}</td>
+                <td>{{ hospital.orMaxCapacity }}</td>
+                <td>{{ hospital.specialistsMaxCapacity }}</td>
+                <td>{{ hospital.anesthetistMaxCapacity }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('hospitals_show', { 'id': hospital.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('hospitals_edit', { 'id': hospital.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hospitals_new') }}">Create a new hospital</a>
+        </li>
+    </ul>
+{% endblock %}

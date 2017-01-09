@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Operatingroom</b></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ operatingRoom.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ operatingRoom.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ operatingRoom.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('operating_rooms_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('operating_rooms_edit', { 'id': operatingRoom.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+        </div>
+    </div>
+{% endblock %}

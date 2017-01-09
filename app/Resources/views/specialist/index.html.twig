@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Specialist list</b></h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Gender</th>
+                        <th>Dob</th>
+                        <th>Availabilityperweek</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for specialist in specialists %}
+                    <tr>
+                        <td><a href="{{ path('specialists_show', { 'id': specialist.id }) }}">{{ specialist.id }}</a></td>
+                        <td>{{ specialist.firstName }}</td>
+                        <td>{{ specialist.lastName }}</td>
+                        <td>{{ specialist.gender }}</td>
+                        <td>{% if specialist.dob %}{{ specialist.dob|date('Y-m-d') }}{% endif %}</td>
+                        <td>{{ specialist.availabilityPerWeek }}</td>
+                        <td>
+                            <a class="btn btn-success" href="{{ path('specialists_show', { 'id': specialist.id }) }}">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show
+                            </a>
+                            <a class="btn btn-warning" href="{{ path('specialists_edit', { 'id': specialist.id }) }}">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+                            </a>
+                            <a class="btn btn-info" href="{{ path("specialist_overview", { "specialistId" : specialist.id}) }}">Overview</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div>
+                <a class="btn btn-info" href="{{ path('specialists_new') }}">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create a new specialist
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

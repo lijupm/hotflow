@@ -1,0 +1,51 @@
+Hotflo\ORBundle\Entity\Hospital:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\HospitalRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        handle:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+            nullable: true
+        address:
+            type: text
+            nullable: true
+        orMaxCapacity:
+            type: integer
+            column: or_max_capacity
+        specialistsMaxCapacity:
+            type: integer
+            column: specialists_max_capacity
+        anesthetistMaxCapacity:
+            type: integer
+            column: anesthetist_max_capacity
+
+    oneToMany:
+        operatingRooms:
+            targetEntity: Hotflo\ORBundle\Entity\OperatingRoom
+            mappedBy: hospital
+        specialists:
+            targetEntity: Hotflo\ORBundle\Entity\Specialist
+            mappedBy: hospital
+        anesthetists:
+            targetEntity: Hotflo\ORBundle\Entity\Anesthetist
+            mappedBy: hospital
+
+    manyToMany:
+        specialisms:
+            targetEntity: Hotflo\ORBundle\Entity\Specialism
+            mappedBy: hospitals
+
+    lifecycleCallbacks: {  }

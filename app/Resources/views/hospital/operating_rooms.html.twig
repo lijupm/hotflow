@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Hospital >> Operating rooms</b></h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for operatingRoom in operatingRooms %}
+                    <tr>
+                        <td><a href="{{ path('operating_rooms_show', { 'id': operatingRoom.id }) }}">{{ operatingRoom.id }}</a></td>
+                        <td><a href="{{ path('operating_rooms_show', { 'id': operatingRoom.id }) }}">{{ operatingRoom.name }}</a></td>
+                        <td>{{ operatingRoom.description }}</td>
+                        <td><a class="btn btn-success" href="{{ path('operating_room_overview', { 'operatingRoomId': operatingRoom.id}) }}">Overview</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

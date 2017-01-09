@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Anesthetists list</b></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                <th>Availabilityperweek</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for anesthetist in anesthetists %}
+            <tr>
+                <td><a href="{{ path('anesthetists_show', { 'id': anesthetist.id }) }}">{{ anesthetist.id }}</a></td>
+                <td>{{ anesthetist.firstName }}</td>
+                <td>{{ anesthetist.lastName }}</td>
+                <td>{{ anesthetist.gender }}</td>
+                <td>{% if anesthetist.dob %}{{ anesthetist.dob|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ anesthetist.availabilityPerWeek }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('anesthetists_show', { 'id': anesthetist.id }) }}">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show
+                    </a>
+                    <a class="btn btn-warning" href="{{ path('anesthetists_edit', { 'id': anesthetist.id }) }}">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <div>
+            <a class="btn btn-info" href="{{ path('anesthetists_new') }}">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create a new anesthetist
+            </a>
+        </div>
+        </div>
+    </div>
+{% endblock %}

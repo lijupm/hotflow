@@ -1,0 +1,25 @@
+Hotflo\ORBundle\Entity\Patient:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\PatientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
+        gender:
+            type: string
+            length: '10'
+        dob:
+            type: date
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+Hotflo\ORBundle\Entity\Specialism:
+    type: entity
+    table: null
+    repositoryClass: Hotflo\ORBundle\Repository\SpecialismRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+
+    manyToMany:
+        hospitals:
+            targetEntity: Hotflo\ORBundle\Entity\Hospital
+            inversedBy: specialisms
+
+    lifecycleCallbacks: {  }

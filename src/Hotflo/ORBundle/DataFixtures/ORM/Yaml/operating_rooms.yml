@@ -1,0 +1,32 @@
+or_one:
+  name: "OR 1"
+  description: "OR 1 description"
+
+or_two:
+  name: "OR 2"
+  description: "OR 2 description"
+
+or_three:
+  name: "OR 3"
+  description: "OR 3 description"
+
+or_four:
+  name: "OR 4"
+  description: "OR 4 description"
+
+or_five:
+  name: "OR 5"
+  description: "OR 5 description"
+
+or_six:
+  name: "OR 6"
+  description: "OR 6 description"
+
+or_seven:
+  name: "OR 7"
+  description: "OR 7 description"
+
+or_eight:
+  name: "OR 8"
+  description: "OR 8 description"
+

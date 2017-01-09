@@ -1,0 +1,18 @@
+#specialist
+specialist_timeslot_not_available: "Specialist is NOT available in the given timeslot!"
+specialist_timeslot_available: "Specialist is available in the given timeslot!"
+specialist_limit_reached: "Hospital has reached Specialist limit. Cannot add more Specialists."
+specialist_added_successfully: "Specialist has been added successfully"
+
+#OR
+OR_limit_reached: "Hospital has reached OR limit. Cannot add more ORs."
+OR_added_successfully: "Operation Room has been added successfully"
+
+#Anesthetist
+anesthetists_limit_reached: "Hospital has reached Anesthetist limit. Cannot add more Anesthetists."
+anesthetist_added_successfully: "Anesthetist has been added successfully"
+
+#session
+session_added_successfully: "Session has been created successfully"
+session_cannot_add_specialist: "Cannot add the Specialist to this session. His quota for the week is over!"
+session_cannot_add_anesthetist: "Cannot add Anesthetist {anesthetist} to this session. His quota for the week is over!"

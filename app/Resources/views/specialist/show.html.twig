@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Specialist</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ specialist.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ specialist.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ specialist.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ specialist.gender }}</td>
+            </tr>
+            <tr>
+                <th>Dob</th>
+                <td>{% if specialist.dob %}{{ specialist.dob|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Availabilityperweek</th>
+                <td>{{ specialist.availabilityPerWeek }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('specialists_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('specialists_edit', { 'id': specialist.id }) }}">Edit</a>
+        </li>
+        <li>
+            <a href="{{ path('specialist_overview', { 'specialistId': specialist.id }) }}">Overview</a>
+        </li>
+        <li>
+            <a href="{{ path('specialist_check_availability', { 'specialistId': specialist.id }) }}">Check Availability</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

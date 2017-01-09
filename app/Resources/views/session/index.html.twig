@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>Sessions list</b></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Starttime</th>
+                <th>Endtime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in sessions %}
+            <tr>
+                <td><a href="{{ path('sessions_show', { 'id': session.id }) }}">{{ session.id }}</a></td>
+                <td>{{ session.name }}</td>
+                <td>{{ session.description }}</td>
+                <td>{% if session.startTime %}{{ session.startTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if session.endTime %}{{ session.endTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('sessions_show', { 'id': session.id }) }}">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show
+                    </a>
+                    <a class="btn btn-warning" href="{{ path('sessions_edit', { 'id': session.id }) }}">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-info" href="{{ path('sessions_new') }}">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create a new session
+        </a>
+    </div>
+    </div>
+    </div>
+{% endblock %}

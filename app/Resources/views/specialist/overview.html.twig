@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Specialist [ {{ specialist.firstName }} {{ specialist.lastName }} ] >> Overview</b></h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Session</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Operating Room</th>
+                    </tr>
+                </thead>
+                {% for session in sessions %}
+                    <tr>
+                        <td>{{ session.name }}</td>
+                        <td>{{ session.startTime|date('d-m-Y H:i:s') }}</td>
+                        <td>{{ session.endTime|date('d-m-Y H:i:s') }}</td>
+                        <td>{{ session.operatingRoom.name }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td>No sessions found</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

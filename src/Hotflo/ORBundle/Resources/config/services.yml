@@ -1,0 +1,34 @@
+services:
+  hotflo.service.base:
+    class: Hotflo\ORBundle\Service\BaseService
+    arguments: ["@hotflo.service.capacity_manager", "@doctrine.orm.entity_manager", "@service_container"]
+
+  hotflo.service.capacity_manager:
+    class: Hotflo\ORBundle\Service\CapacityManagerService
+    arguments: ["@doctrine.orm.entity_manager"]
+
+  hotflo.service.hospital:
+    class: Hotflo\ORBundle\Service\HospitalService
+    parent: hotflo.service.base
+
+  hotflo.service.operating_room:
+    class: Hotflo\ORBundle\Service\OperatingRoomService
+    parent: hotflo.service.base
+    calls:
+      - [setHospitalService, ["@hotflo.service.hospital"]]
+
+  hotflo.service.session:
+    class: Hotflo\ORBundle\Service\SessionService
+    parent: hotflo.service.base
+
+  hotflo.service.specialist:
+    class: Hotflo\ORBundle\Service\SpecialistService
+    parent: hotflo.service.base
+    calls:
+      - [setServices, ["@hotflo.service.session", "@hotflo.service.hospital"]]
+
+  hotflo.service.anesthetist:
+    class: Hotflo\ORBundle\Service\AnesthetistService
+    parent: hotflo.service.base
+    calls:
+      - [setServices, ["@hotflo.service.session", "@hotflo.service.hospital"]]

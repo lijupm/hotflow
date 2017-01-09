@@ -1,0 +1,8 @@
+hospital_one:
+  name: "Hotflo Hospital"
+  handle: "hotflo"
+  description: "Hotflo Hospital description"
+  address: "Hotflo Hospital address"
+  or_max_capacity: 10
+  specialists_max_capacity: 5
+  anesthetist_max_capacity: 5

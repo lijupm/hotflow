@@ -1,0 +1,31 @@
+hotflo_or_patient:
+    resource: "@HotfloORBundle/Controller/PatientController.php"
+    type:     annotation
+
+hotflo_or_specialism:
+    resource: "@HotfloORBundle/Controller/SpecialismController.php"
+    type:     annotation
+
+hotflo_or_anesthetist:
+    resource: "@HotfloORBundle/Controller/AnesthetistController.php"
+    type:     annotation
+
+hotflo_or_specialist:
+    resource: "@HotfloORBundle/Controller/SpecialistController.php"
+    type:     annotation
+
+hotflo_or_session:
+    resource: "@HotfloORBundle/Controller/SessionController.php"
+    type:     annotation
+
+hotflo_or_operating_room:
+    resource: "@HotfloORBundle/Controller/OperatingRoomController.php"
+    type:     annotation
+
+hotflo_or_hospital:
+    resource: "@HotfloORBundle/Controller/HospitalController.php"
+    type:     annotation
+
+hotflo_or:
+    resource: "@HotfloORBundle/Resources/config/routing.yml"
+    prefix:   /
