@@ -47,3 +47,17 @@ In the assignment description, few points are noted
 * Specialists and anesthetists are limitedly available (some work 40 hours, others 32).
 
 All these scenarios are handled by the service [CapacityManagerService](https://github.com/lijupm/hotflow/blob/master/src/Hotflo/ORBundle/Service/CapacityManagerService.php)
+
+## How to test above scenarios
+* A hospital has 10 operatingrooms (OR’s).
+
+ To test this scenario, go to "Data Entry" >> "Operating Rooms" page. You can see there is already 8 ORs available. You can add 2 more to the list, but cannot more than that because the hospital's OR limit is set to 10. 
+
+* This hospital has 5 specialists in service that are scheduled to perform surgeries.
+ To test this scenario, go to "Data Entry" >> "Specialists" and try to add more than 5 specialists. You should get an error message
+
+* It also has 5 anesthetists in service who sedate the patient at the beginning of the session.
+To test this scenario, go to "Data Entry" >> "Anesthetists" and try to add more than 5 Anesthetists, you should get an error message. 
+
+* Specialists and anesthetists are limitedly available (some work 40 hours, others 32).
+To test this scenario, go to "Data Entry" >> "Sessions" page and go to 'Create new Session' page. Try to add Specialist "Adam" to a new Session. It should give an error message saying that he don't have any time left for the week. (For testing purpose, Adam's 'Availability per week' is set to 10
