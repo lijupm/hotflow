@@ -37,3 +37,13 @@ Here are some entities used in the application
 3. [Write an object oriented method in PHP that gives an overview of the sessions and the specialists and the anesthetists that are scheduled per OR.](https://github.com/lijupm/hotflow/blob/master/src/Hotflo/ORBundle/Controller/OperatingRoomController.php#L34)
 4. [Write an object oriented method in PHP that gives an overview of the sessions and OR’s of a specific specialist.](https://github.com/lijupm/hotflow/blob/master/src/Hotflo/ORBundle/Controller/SpecialistController.php#L37)
 5. [Write an object oriented method in PHP that checks if a specialists available in a certain timeslot. Do not write a query, but use the objects you have created.](https://github.com/lijupm/hotflow/blob/master/src/Hotflo/ORBundle/Controller/SpecialistController.php#L53)
+
+
+## Some specific test scenarios
+In the assignment description, few points are noted
+* A hospital has 10 operatingrooms (OR’s).
+* This hospital has 5 specialists in service that are scheduled to perform surgeries.
+* It also has 5 anesthetists in service who sedate the patient at the beginning of the session.
+* Specialists and anesthetists are limitedly available (some work 40 hours, others 32).
+
+All these scenarios are handled by the service [CapacityManagerService](https://github.com/lijupm/hotflow/blob/master/src/Hotflo/ORBundle/Service/CapacityManagerService.php)
